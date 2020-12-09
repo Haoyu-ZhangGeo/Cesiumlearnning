@@ -14,6 +14,8 @@ const viewer = new Cesium.Viewer('cesiumContainer', {
    fullscreenButton:false//视窗全屏按钮
    
  });
+//    取消双击事件
+ viewer.cesiumWidget.screenSpaceEventHandler.removeInputAction(Cesium.ScreenSpaceEventType.LEFT_DOUBLE_CLICK);
  const TD_Key = "1f2ef17e38eb899d84d7017624791d77";//天地图密钥
  //在线天地图影像服务地址
  const TD_IMG_W = "http://{s}.tianditu.gov.cn/img_w/wmts?service=wmts&request=GetTile&version=1.0.0" +"&LAYER=img&tileMatrixSet=w&TileMatrix={TileMatrix}&TileRow={TileRow}&TileCol={TileCol}" +"&style=default&format=tiles&tk=" + TD_Key;//影像
