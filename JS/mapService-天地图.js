@@ -2,10 +2,21 @@ const China = Cesium.Rectangle.fromDegrees(100, 10, 120, 70);//以弧度表示�
 Cesium.Camera.DEFAULT_VIEW_RECTANGLE = China;
 // 使初始位置放大 
 Cesium.Camera.DEFAULT_VIEW_FACTOR = 0.5;
+
+ //使用 WebTile……接口访问天地图  其他接口地址请到天地图官网查找，天地图与cesium有三维地形插件
+const tdMap = new Cesium.WebMapTileServiceImageryProvider({
+  url: "http://t0.tianditu.com/img_w/wmts?service=wmts&request=GetTile&version=1.0.0&LAYER=img&tileMatrixSet=w&TileMatrix={TileMatrix}&TileRow={TileRow}&TileCol={TileCol}&style=default&format=tiles&tk=1f2ef17e38eb899d84d7017624791d77",
+  layer: "tdtBasicLayer",
+  style: "default",
+  format: "image/jpeg",
+  tileMatrixSetID: "GoogleMapsCompatible",
+  show: false
+});
 // 引出视窗，去除屏幕下方IU控件
-const viewer = new Cesium.Viewer('cesiumContainer', {
+const viewer = new Cesium.Viewer('cesiumContainer',{
+   imageryProvider:tdMap,
    animation:false,//左下角时间动画视窗
-   baseLayerPicker:true,//右上角底图选择按钮
+   baseLayerPicker:false,//右上角底图选择按钮
    geocoder:false,//搜索按钮
    navigationHelpButton:false,//帮助按钮
   // homeButton:false,//回到默认视角按钮
@@ -16,5 +27,5 @@ const viewer = new Cesium.Viewer('cesiumContainer', {
  });
 //    取消双击事件
  viewer.cesiumWidget.screenSpaceEventHandler.removeInputAction(Cesium.ScreenSpaceEventType.LEFT_DOUBLE_CLICK);
- //使用 WebTile……接口访问天地图
+
  

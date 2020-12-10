@@ -2,8 +2,23 @@ const China = Cesium.Rectangle.fromDegrees(100, 10, 120, 70);//以弧度表示�
 Cesium.Camera.DEFAULT_VIEW_RECTANGLE = China;
 // 使初始位置放大 
 Cesium.Camera.DEFAULT_VIEW_FACTOR = 0.5;
+
+//esri 地图服务调用
+const esri = new Cesium.ArcGisMapServerImageryProvider({
+  url:'https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer',
+  enablePickFeatures: false
+});
+//专门的bing接口   没有申请key
+const bing = new Cesium.BingMapsImageryProvider({
+  url : 'https://dev.virtualearth.net',
+  key : 'get-yours-at-https://www.bingmapsportal.com/',
+  mapStyle : Cesium.BingMapsStyle.AERIAL
+});
+
+
 // 引出视窗，去除屏幕下方IU控件
 const viewer = new Cesium.Viewer('cesiumContainer', {
+   imageryProvider:esri,bing,
    animation:false,//左下角时间动画视窗
    baseLayerPicker:false,//右上角底图选择按钮
    geocoder:false,//搜索按钮
@@ -17,17 +32,4 @@ const viewer = new Cesium.Viewer('cesiumContainer', {
  });
  //    取消双击事件
  viewer.cesiumWidget.screenSpaceEventHandler.removeInputAction(Cesium.ScreenSpaceEventType.LEFT_DOUBLE_CLICK);
-//使用ArcGisMapServerImageryProvider 接口调用地图服务
-const esri = new Cesium.ArcGisMapServerImageryProvider({
-  url:'https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer',
-  enablePickFeatures: false
-});
-//专门的bing接口  
-var bing = new Cesium.BingMapsImageryProvider({
-  url : 'https://dev.virtualearth.net',
-  key : 'get-yours-at-https://www.bingmapsportal.com/',
-  mapStyle : Cesium.BingMapsStyle.AERIAL
-});
 
-//以上两个接口仅做测试，在国内不适用
-viewer.imageryLayers.addImageryProvider(esri);

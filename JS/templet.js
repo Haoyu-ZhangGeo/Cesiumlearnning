@@ -1,4 +1,5 @@
-const China = Cesium.Rectangle.fromDegrees(100, 10, 120, 70);//以弧度表示的经纬度 west south east north .fromDegree 为经纬度定义方法
+//以弧度表示的经纬度 west south east north .fromDegree 为经纬度定义方法  要在最上方引入
+const China = Cesium.Rectangle.fromDegrees(100, 10, 120, 70);
 Cesium.Camera.DEFAULT_VIEW_RECTANGLE = China;
 // 使初始位置放大 
 Cesium.Camera.DEFAULT_VIEW_FACTOR = 0.5;
