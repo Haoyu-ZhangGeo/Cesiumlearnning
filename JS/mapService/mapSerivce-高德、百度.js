@@ -12,9 +12,14 @@ const gdMap = new Cesium.UrlTemplateImageryProvider({
     tileMatrixSetID: "GoogleMapsCompatible",
     show: false
 });
+//百度
+const bdMap = new Cesium.UrlTemplateImageryProvider({
+  url:'http://api.map.baidu.com/marker?location=0,0&title=我的位置&content=百度奎科大厦&output=html&src=webapp.baidu.openAPIdemo',
+
+});
 // 引出视窗，去除屏幕下方IU控件
 const viewer = new Cesium.Viewer('cesiumContainer', {
-   imageryProvider:gdMap,
+   imageryProvider:bdMap,
    animation:false,//左下角时间动画视窗
    baseLayerPicker:true,//右上角底图选择按钮
    geocoder:false,//搜索按钮
