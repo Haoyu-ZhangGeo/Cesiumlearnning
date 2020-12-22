@@ -23,3 +23,21 @@ const viewer = new Cesium.Viewer('cesiumContainer', {
  });
 //    取消双击事件
  viewer.cesiumWidget.screenSpaceEventHand
+
+ //获取画布(在2D情况下方法不适用)
+ const canvas = viewer.scene.canvas;
+ const handler = new Cesium.ScreenSpaceEventHandler(canvas);
+//绑定鼠标左键点击事件
+handler.setInputAction(function(event){
+    //获取鼠标点的windowposition
+    const windowPosition = event.position;
+    // 将屏幕坐标转换为cattesian3
+    const ray = viewer.camera.getPickRay(windowPosition);
+    const cartesian  = viewer.scene.globe.pick(ray,viewer.scene);
+    //将cartesian3再转换为cartographic（只能点击球体，点击其他不会返回值）
+    const cartographic = Cesium.Cartographic.fromCartesian(cartesian);
+    console.log(cartographic)
+},Cesium.ScreenSpaceEventType.LEFT_CLICK);
+
+ 
+
