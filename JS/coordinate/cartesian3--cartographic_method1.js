@@ -23,3 +23,20 @@ const viewer = new Cesium.Viewer('cesiumContainer', {
  });
 //    取消双击事件
  viewer.cesiumWidget.screenSpaceEventHand
+
+ //获取画布
+ const canvas = viewer.scene.canvas;
+ const handler = new Cesium.ScreenSpaceEventHandler(canvas);
+//绑定鼠标左键点击事件
+handler.setInputAction(function(event){
+    //获取二维坐标再转换三维世界坐标
+    const pick = new Cesium.Cartesian2(0,0);
+    const ellipsoid = viewer.scene.globe.ellipsoid;
+    const cartesian = viewer.camera.pickEllipsoid(pick,ellipsoid);
+    //将cartesian3 转换为cartogarphic（弧度）
+    //这里一定要点击在地球上，否则无法返回值（实际效果方法二更好，此方法需镜头拉近才能返回值）
+    const cartographic = Cesium.Cartographic.fromCartesian(cartesian); 
+    console.log(cartographic)
+},Cesium.ScreenSpaceEventType.LEFT_CLICK);
+
+
