@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice</title>
+    <script src="/Build/CesiumUnminified/Cesium.js"></script>
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+    <div id="cesiumContainer" class="fullsize"></div>
+    <div id="toolbar">
+        <select id = "camera_select", class="cesium-button">
+            <option value="undefined">
+                相机选项
+            </option>
+            <option value="undefined">
+                飞行至某一点——滁州学院
+            </option>
+            <option value="undefined">
+                飞行至某区域——北京市
+            </option>
+            <option value="undefined">
+                设置相机点——武汉大学
+            </option>
+            <option value="undefined">
+                设置相机区域——深圳市
+            </option>
+            <option value="undefined">
+                从滁院飞向武大
+            </option>
+            <option value="undefined">
+                回到主视图
+            </option>
+        </select>
+    </div>
+    <script src="/JS/camera/camera_flight.js"></script>
+</body>
+</html>
