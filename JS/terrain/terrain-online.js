@@ -24,7 +24,7 @@ const viewer = new Cesium.Viewer('cesiumContainer', {
    });
    
 //    取消双击事件
- viewer.cesiumWidget.screenSpaceEventHand
+viewer.cesiumWidget.screenSpaceEventHandler.removeInputAction(Cesium.ScreenSpaceEventType.LEFT_DOUBLE_CLICK);
 
  //显示接口功能为构造，可以直接用baselayer里的
 //  const worldTerrain = Cesium.creatWorldTerrain({

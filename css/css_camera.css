@@ -1,0 +1,28 @@
+/* 引用cesium 源码自带css样式 */
+@import url(/css/widgets.css);
+html,
+body,#cesiumContainer {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: #000;
+}
+
+
+#toolbar {
+  margin-top: auto;
+  margin-bottom: auto;
+  top: 10px;
+  left:10px;
+  bottom: 0;
+  position: absolute;
+  }
+
+/* 去掉屏幕下方的图标及版权信息 */
+ .cesium-widget-credits{
+     display:none !important;
+ }
+ 
+ 

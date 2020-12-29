@@ -22,4 +22,5 @@ const viewer = new Cesium.Viewer('cesiumContainer', {
    
  });
 //    取消双击事件
- viewer.cesiumWidget.screenSpaceEventHand
+//    取消双击事件
+viewer.cesiumWidget.screenSpaceEventHandler.removeInputAction(Cesium.ScreenSpaceEventType.LEFT_DOUBLE_CLICK);

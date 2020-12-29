@@ -19,8 +19,8 @@ const viewer = new Cesium.Viewer('cesiumContainer', {
   // homeButton:false,//回到默认视角按钮
    sceneModePicker:false,//切换2D,3D按钮
    timeline:false,//下方时间轴
-   fullscreenButton:false//视窗全屏按钮
-   
+   fullscreenButton:false,//视窗全屏按钮
+   vrButton :true,//开启vr控件
  });
  
 const imageryLayers = viewer.scene.imageryLayers;
@@ -31,9 +31,9 @@ const tdtAnnoLayer = imageryLayers.addImageryProvider(new Cesium.WebMapTileServi
     format: "image/jpeg",
     tileMatrixSetID: "GoogleMapsCompatible"
 }));
-
 //    取消双击事件
- viewer.cesiumWidget.screenSpaceEventHand
+viewer.cesiumWidget.screenSpaceEventHandler.removeInputAction(Cesium.ScreenSpaceEventType.LEFT_DOUBLE_CLICK);
+
 
 //1、获取HTML的select选项
 //2、将每一个选项赋予相应的操作
@@ -49,7 +49,7 @@ const  camera_select = document.getElementById("camera_select");
                         pitch: Cesium.Math.toRadians(-70.0),
                         roll: Cesium.Math.toRadians(20.10)
                     },
-                    duration: 5,
+                    duration: 6,
 
 
                  });
@@ -96,7 +96,7 @@ const  camera_select = document.getElementById("camera_select");
                         pitch: Cesium.Math.toRadians(-70.0),
                         roll: Cesium.Math.toRadians(20.10)
                     },
-                    duration: 5,
+                    duration: 6,
 
                 };
                 chzOption.complete = function (){

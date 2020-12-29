@@ -9,17 +9,6 @@ body,#cesiumContainer {
     overflow: hidden;
     background: #000;
 }
-
-
-#toolbar {
-  margin-top: auto;
-  margin-bottom: auto;
-  top: 10px;
-  left:10px;
-  bottom: 0;
-  position: absolute;
-  }
-
 /* 去掉屏幕下方的图标及版权信息 */
  .cesium-widget-credits{
      display:none !important;
