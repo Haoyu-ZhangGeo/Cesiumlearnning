@@ -16,22 +16,26 @@ const viewer = new Cesium.Viewer('cesiumContainer', {
    baseLayerPicker:true,//右上角底图选择按钮
    geocoder:false,//搜索按钮
   // homeButton:false,//回到默认视角按钮
-   //sceneModePicker:false,//切换2D,3D按钮
+   sceneModePicker:false,//切换2D,3D按钮
    timeline:false,//下方时间轴
-   fullscreenButton:false//视窗全屏按钮
+   fullscreenButton:false,//视窗全屏按钮
+   shouldAnimate : true,//开启模型动画效果
    
  });
 //    取消双击事件
- viewer.cesiumWidget.screenSpaceEventHand
+viewer.cesiumWidget.screenSpaceEventHandler.removeInputAction(Cesium.ScreenSpaceEventType.LEFT_DOUBLE_CLICK);
 
- //获取画布
- const canvas = viewer.scene.canvas;
- const handler = new Cesium.ScreenSpaceEventHandler(canvas);
-//绑定鼠标左键点击事件
-handler.setInputAction(function(event){
-    //获取鼠标点的windowposition
-    const windowPosition = event.position;
-    console.log(windowPosition)
-},Cesium.ScreenSpaceEventType.LEFT_CLICK);
+//创建盒子
+const greenBox = viewer.entities.add({
+    name : 'Green Box',
+    position: Cesium.Cartesian3.fromDegrees(114,50,30000),
+    box:{
+        dimensions :new Cesium.Cartesian3(400000,300000,500000),
+        material:Cesium.Color.GREEN,
+        outline:true,
+    }
 
+});
 
+const property = new Cesium.SampledProperty(Cesium.Cartesian3);
+    property.addSample(Cesium.JulianDate.from);
