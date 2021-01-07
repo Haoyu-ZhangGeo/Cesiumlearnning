@@ -16,7 +16,7 @@ const viewer = new Cesium.Viewer('cesiumContainer', {
    baseLayerPicker:true,//右上角底图选择按钮
    geocoder:false,//搜索按钮
   // homeButton:false,//回到默认视角按钮
-   sceneModePicker:false,//切换2D,3D按钮
+   //sceneModePicker:false,//切换2D,3D按钮
    timeline:false,//下方时间轴
    fullscreenButton:false//视窗全屏按钮
    

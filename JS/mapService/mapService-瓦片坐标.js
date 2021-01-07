@@ -23,7 +23,7 @@ const viewer = new Cesium.Viewer('cesiumContainer', {
    
  });
 //    取消双击事件
- viewer.cesiumWidget.screenSpaceEventHand
+viewer.cesiumWidget.screenSpaceEventHandler.removeInputAction(Cesium.ScreenSpaceEventType.LEFT_DOUBLE_CLICK);
 //添加瓦片坐标
  const TileCoordinatesImagery = new Cesium.TileCoordinatesImageryProvider();
  const TileCoordinatesImageryLayer=viewer.imageryLayers.addImageryProvider(TileCoordinatesImagery);

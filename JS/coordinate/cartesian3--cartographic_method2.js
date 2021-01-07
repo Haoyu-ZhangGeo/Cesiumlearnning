@@ -22,7 +22,7 @@ const viewer = new Cesium.Viewer('cesiumContainer', {
    
  });
 //    取消双击事件
- viewer.cesiumWidget.screenSpaceEventHand
+viewer.cesiumWidget.screenSpaceEventHandler.removeInputAction(Cesium.ScreenSpaceEventType.LEFT_DOUBLE_CLICK);
 
  //获取画布(在2D情况下方法不适用)
  const canvas = viewer.scene.canvas;
