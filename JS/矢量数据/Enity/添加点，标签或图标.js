@@ -43,7 +43,7 @@ var citizensBankPark = viewer.entities.add( {
         pixelOffset : new Cesium.Cartesian2( 0, -9 )   //偏移量
     },
     billboard : { //图标
-        image : 'https://i1.hdslb.com/bfs/archive/b5517ca93b4489afd19df2091d8aca6997c661eb.jpg@112w_63h_1c_100q.webp',
+        image : 'https://img-s-msn-com.akamaized.net/tenant/amp/entityid/BB1cCSTY.img?h=351&w=624&m=6&q=60&o=f&l=f',
         width : 200,
         height :125,
     },

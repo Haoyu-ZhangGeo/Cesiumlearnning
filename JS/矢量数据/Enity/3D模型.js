@@ -28,7 +28,7 @@ const viewer = new Cesium.Viewer('cesiumContainer',{
 var entity = viewer.entities.add({
     position : Cesium.Cartesian3.fromDegrees(-123.0744619, 44.0503706),
     model : {
-        uri : '/Cesium_Air.glb'
+        uri : '/leishenhillgltf_0.glb'
     },
     scale : 1,//和原始大小相比的缩放比例
     minimumPixelSize :100 //最小尺寸，防止太小而看不见
