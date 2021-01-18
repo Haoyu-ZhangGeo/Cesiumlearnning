@@ -19,7 +19,7 @@ const clock = new Cesium.Clock({
     //开启时间循环
     clockRange: Cesium.ClockRange.LOOP_STOP, 
     clockStep: Cesium.ClockStep.SYSTEM_CLOCK_MULTIPLIER,
-    multiplier: 4000, //
+    multiplier: 8000, //
     shouldAnimate: true, // 
   });
 

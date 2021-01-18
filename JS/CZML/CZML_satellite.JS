@@ -25,4 +25,4 @@ const viewer = new Cesium.Viewer('cesiumContainer', {
 //    取消双击事件
 viewer.cesiumWidget.screenSpaceEventHandler.removeInputAction(Cesium.ScreenSpaceEventType.LEFT_DOUBLE_CLICK);
 
-viewer.dataSources.add(Cesium.CzmlDataSouArce.load('../../asset/CZML/satellite.czml'));
+viewer.dataSources.add(Cesium.CzmlDataSource.load('../../asset/CZML/satellite.czml'));
